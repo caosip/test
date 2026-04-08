@@ -29,10 +29,15 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
   rw [SimpleGraph.mem_edgeSet] at hadj
   have hcard := hReg v
   simp only [SimpleGraph.IsRegularOfDegree, SimpleGraph.degree] at hcard
-  have : (hLF.neighborFinset v).card = 0 := hcard
-  rw [Finset.card_eq_zero] at this
-  have hmem : w ∈ hLF.neighborFinset v := by
-    rw [SimpleGraph.LocallyFinite.mem_neighborFinset]
+  have hmem : w ∈ @SimpleGraph.neighborFinset V G (hLF v) v := by
+    rw [SimpleGraph.mem_neighborFinset]
     exact hadj
-  rw [this] at hmem
+  have hempty : @SimpleGraph.neighborFinset V G (hLF v) v = ∅ := by
+    rw [Finset.eq_empty_iff_forall_not_mem]
+    intro x hx
+    have : (@SimpleGraph.neighborFinset V G (hLF v) v).card = 0 := hcard
+    rw [Finset.card_eq_zero] at this
+    rw [this] at hx
+    exact hx.elim
+  rw [hempty] at hmem
   exact hmem.elim
