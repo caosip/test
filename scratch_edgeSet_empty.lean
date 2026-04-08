@@ -26,10 +26,13 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
   ext ⟨v, w⟩
   simp only [Set.mem_empty_iff_false, iff_false]
   intro hadj
-  have hdeg := hReg v
-  simp only [SimpleGraph.IsRegularOfDegree, SimpleGraph.degree] at hdeg hReg
-  have : w ∈ (hLF.neighborFinset v) := by
-    rwa [SimpleGraph.LocallyFinite.mem_neighborFinset]
-  have : (hLF.neighborFinset v).card = 0 := hReg v
+  rw [SimpleGraph.mem_edgeSet] at hadj
+  have hcard := hReg v
+  simp only [SimpleGraph.IsRegularOfDegree, SimpleGraph.degree] at hcard
+  have : (hLF.neighborFinset v).card = 0 := hcard
   rw [Finset.card_eq_zero] at this
-  exact absurd ‹w ∈ _› (this ▸ Finset.not_mem_empty w)
+  have hmem : w ∈ hLF.neighborFinset v := by
+    rw [SimpleGraph.LocallyFinite.mem_neighborFinset]
+    exact hadj
+  rw [this] at hmem
+  exact hmem.elim
