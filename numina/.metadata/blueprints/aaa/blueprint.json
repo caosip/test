@@ -4,5 +4,6 @@
   "status": "formalized",
   "source_type": "pdf",
   "notes": "",
+  "leanModule": "test.lean",
   "entries": []
 }
