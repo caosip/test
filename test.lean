@@ -1,5 +1,4 @@
 import Mathlib
-import LiveProveBench.Util.Attributes
 
 open Nat
 
@@ -23,6 +22,5 @@ def AztecDiamond (n : ℕ) : Set (ℤ × ℤ) :=
   {x : ℤ × ℤ | |(↑x.1 : ℝ) - 0.5| + |(↑x.2 : ℝ) - 0.5| ≤ n}
 
 /-- The Aztec diamond of order $n$ has $2 ^(choose (n + 1) 2)$ Domino tilings. -/
-@[AMS 05]
 theorem aztecDiamond_tiling (n : ℕ) :
     Nat.card (DominoTiling (AztecDiamond n)) = 2 ^ ((n + 1).choose 2) := by sorry
