@@ -22,15 +22,4 @@ def SimpleGraph.IsRegularOfDegree'.{u} {V : Type u} (G : SimpleGraph V)
 lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
-  obtain ⟨hlf, hreg⟩ := h
-  rw [SimpleGraph.edgeSet_eq_empty]
-  ext v w
-  simp only [SimpleGraph.bot_adj]
-  refine ⟨fun hadj => ?_, False.elim⟩
-  have hdeg := hreg v
-  have : (G.neighborFinset v).card = 0 := hdeg
-  have : G.neighborFinset v = ∅ := Finset.card_eq_zero.mp this
-  have : w ∈ G.neighborFinset v := by
-    rw [SimpleGraph.mem_neighborFinset]
-    exact hadj
-  simp_all
+  sorry
