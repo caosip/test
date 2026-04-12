@@ -23,16 +23,11 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
   obtain ⟨hfin, hreg⟩ := h
-  rw [Set.eq_empty_iff_forall_notMem]
-  intro e he
-  rw [SimpleGraph.mem_edgeSet] at he
-  obtain ⟨v, w, rfl⟩ := e.exists_eq
-  rw [SimpleGraph.mk'_mem_edgeSet] at he
-  have hdeg := hreg v
-  have hne : @SimpleGraph.neighborFinset V G v (hfin v) = ∅ := by
-    rwa [← Finset.card_eq_zero]
-  have : w ∈ @SimpleGraph.neighborFinset V G v (hfin v) := by
-    rw [@SimpleGraph.mem_neighborFinset]
-    exact he
-  rw [hne] at this
-  exact absurd this (Finset.not_mem_empty _)
+  rw [SimpleGraph.edgeSet_eq_empty, SimpleGraph.eq_bot_iff_forall_not_adj]
+  intro v w hvw
+  have : @SimpleGraph.degree V G v (hfin v) = 0 := hreg v
+  have : @SimpleGraph.neighborFinset V G v (hfin v) = ∅ :=
+    Finset.card_eq_zero.mp this
+  have : w ∈ @SimpleGraph.neighborFinset V G v (hfin v) :=
+    (@SimpleGraph.mem_neighborFinset V G v (hfin v) w).mpr hvw
+  simp_all
