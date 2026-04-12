@@ -32,3 +32,4 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
   rw [SimpleGraph.degree, Finset.card_eq_zero] at h1
   rw [h1] at h2
   exact absurd h2 (by simp)
+  exact aaa
