@@ -1,7 +1,6 @@
 {
   "title": "aaa",
   "branch": "numina/aaa",
-  "status": "in_progress",
   "source_type": "pdf",
   "notes": "",
   "leanModule": "test.lean",
