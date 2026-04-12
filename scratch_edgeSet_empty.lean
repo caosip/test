@@ -26,4 +26,6 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
   haveI := hlf
   simp only [Set.eq_empty_iff_forall_not_mem, Sym2.forall, SimpleGraph.mem_edgeSet]
   intro v w hadj
-  exact absurd hadj.degree_pos_left (by rw [hreg v]; exact lt_irrefl 0)
+  have h1 : G.degree v = 0 := hreg v
+  have h2 : 0 < G.degree v := hadj.degree_pos_left
+  omega
