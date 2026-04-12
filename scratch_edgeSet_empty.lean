@@ -23,10 +23,11 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
   obtain ⟨hlf, hreg⟩ := h
+  haveI := hlf
   rw [SimpleGraph.edgeSet_eq_empty]
   ext v w
   simp only [SimpleGraph.bot_adj]
   intro hadj
-  have h0 : G.degree v = 0 := hreg v
-  have hpos : 0 < G.degree v := hadj.degree_pos_left
+  have h1 := hreg v
+  have h2 := hadj.degree_pos_left
   omega
