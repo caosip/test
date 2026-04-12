@@ -23,9 +23,11 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
   obtain ⟨hlf, hreg⟩ := h
-  haveI := hlf
-  simp only [Set.eq_empty_iff_forall_notMem, Sym2.forall, SimpleGraph.mem_edgeSet]
-  intro v w hadj
-  have h1 : G.degree v = 0 := hreg v
-  have h2 : 0 < G.degree v := hadj.degree_pos_left
+  ext e
+  simp only [Set.mem_empty_iff_false, iff_false]
+  intro he
+  obtain ⟨v, w, rfl⟩ := Sym2.exists_eq_mk.mp ⟨e, rfl⟩
+  rw [SimpleGraph.mem_edgeSet] at he
+  have h1 : @SimpleGraph.degree V G hlf v = 0 := hreg v
+  have h2 : 0 < @SimpleGraph.degree V G hlf v := he.degree_pos_left
   omega
