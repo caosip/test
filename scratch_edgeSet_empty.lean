@@ -23,9 +23,7 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
   obtain ⟨hfin, hreg⟩ := h
-  rw [SimpleGraph.edgeSet_eq_empty]
-  rw [SimpleGraph.eq_bot_iff_forall_not_adj]
+  letI := hfin
+  rw [SimpleGraph.edgeSet_eq_empty, SimpleGraph.eq_bot_iff_forall_not_adj]
   intro a b hadj
-  have := hadj.degree_pos_left
-  rw [hreg a] at this
-  exact Nat.lt_irrefl 0 this
+  exact absurd (hadj.degree_pos_left) (by rw [hreg a]; omega)
