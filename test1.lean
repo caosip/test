@@ -1,5 +1,5 @@
 import Mathlib.LinearAlgebra.LinearIndependent.Basic
--- import MIL.Common
+import MIL.Common
 
 /-!
 # Pointwise Scalar Linear Maps
