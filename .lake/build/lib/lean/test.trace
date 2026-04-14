@@ -1,8 +1,8 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["990cfdb9dafc71ad.olean"],
-  "i": "09cf9e861ae50097.ilean",
+ {"o": ["08f4f8cd5889faad.olean"],
+  "i": "85fa4567045f1880.ilean",
   "c": "77f8223d30729b3c.c"},
  "log":
  [{"message":
@@ -10,7 +10,7 @@
    "level": "trace"},
   {"message": "test.lean:22:6: declaration uses `sorry`", "level": "warning"},
   {"message":
-   "test.lean:26:0: unclosed sections or namespaces; expected: '\n\nend'\n\nNote: This linter can be disabled with `set_option linter.style.missingEnd false`",
+   "test.lean:35:0: unclosed sections or namespaces; expected: '\n\nend'\n\nNote: This linter can be disabled with `set_option linter.style.missingEnd false`",
    "level": "warning"}],
  "inputs":
  [["test:deps",
@@ -27,11 +27,11 @@
   ["Lean 4.28.0, commit 7e01a1bf5c70fc6167d49c345d3bf80596e9a79b",
    "a96bc04a2e5e9630"],
   ["/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/test.lean",
-   "b16939cb6e093263"],
+   "cfecc9ff85205894"],
   ["options",
    [["-DmaxSynthPendingDepth=3", "c78e353d34de85d4"],
     ["-Dweak.linter.mathlibStandardSet=true", "8a155799906f2b42"],
     ["-DrelaxedAutoImplicit=false", "74a2b5546b55be80"],
     ["-Dpp.unicode.fun=true", "9b94070140457fab"]]],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "d8ed97c9a3f1272c"}
+ "depHash": "aed6805900195e14"}
