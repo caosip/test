@@ -1,14 +1,13 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["08f4f8cd5889faad.olean"],
-  "i": "85fa4567045f1880.ilean",
+ {"o": ["a88323218f4a567b.olean"],
+  "i": "411e2da13fa7935d.ilean",
   "c": "77f8223d30729b3c.c"},
  "log":
  [{"message":
    ".> LEAN_PATH=/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/Cli/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/batteries/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/Qq/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/aesop/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/proofwidgets/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/importGraph/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/plausible/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/packages/mathlib/.lake/build/lib/lean:/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/build/lib/lean /home/caoyichuan/.elan/toolchains/leanprover--lean4---v4.28.0/bin/lean /mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/test.lean -o /mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/build/lib/lean/test.olean -i /mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/build/lib/lean/test.ilean -c /mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/build/ir/test.c --setup /mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/.lake/build/ir/test.setup.json --json",
    "level": "trace"},
-  {"message": "test.lean:22:6: declaration uses `sorry`", "level": "warning"},
   {"message":
    "test.lean:35:0: unclosed sections or namespaces; expected: '\n\nend'\n\nNote: This linter can be disabled with `set_option linter.style.missingEnd false`",
    "level": "warning"}],
@@ -27,11 +26,11 @@
   ["Lean 4.28.0, commit 7e01a1bf5c70fc6167d49c345d3bf80596e9a79b",
    "a96bc04a2e5e9630"],
   ["/mnt/nvme1/caoyichuan/playground/lake-cache-experiment/test-mathlib-project/caosip/test/aaa/test.lean",
-   "cfecc9ff85205894"],
+   "26a820b20bdc35a1"],
   ["options",
    [["-DmaxSynthPendingDepth=3", "c78e353d34de85d4"],
     ["-Dweak.linter.mathlibStandardSet=true", "8a155799906f2b42"],
     ["-DrelaxedAutoImplicit=false", "74a2b5546b55be80"],
     ["-Dpp.unicode.fun=true", "9b94070140457fab"]]],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "aed6805900195e14"}
+ "depHash": "0809cc979a147785"}
