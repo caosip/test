@@ -22,12 +22,4 @@ def SimpleGraph.IsRegularOfDegree'.{u} {V : Type u} (G : SimpleGraph V)
 lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
-  obtain ⟨hlf, hreg⟩ := h
-  rw [Set.eq_empty_iff_forall_notMem]
-  intro e he
-  induction e with
-  | h u v =>
-    rw [SimpleGraph.mem_edgeSet] at he
-    have hpos : 0 < G.degree u := he.degree_pos_left
-    rw [hreg u] at hpos
-    exact Nat.lt_irrefl 0 hpos
+  sorry
