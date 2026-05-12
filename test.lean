@@ -34,6 +34,6 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     have hmem : w ∈ G.neighborFinset v := by
       simpa [SimpleGraph.mem_neighborFinset] using hadj
     rw [hcard0] at hmem
-    simpa using hmem
+    simp at hmem
   · intro h
     exfalso; exact h
