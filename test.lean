@@ -34,7 +34,6 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     have hmem : b ∈ G.neighborFinset a :=
       (G.mem_neighborFinset _ _).mpr h_adj
     rw [hneigh_empty a] at hmem
-    exact Finset.not_mem_empty b hmem
+    simp at hmem
   apply SimpleGraph.edgeSet_eq_empty.mpr
-  ext a b
-  simp [h_no_adj a b]
+  exact SimpleGraph.ext λ a b => ⟨h_no_adj a b, λ h => h.elim⟩
