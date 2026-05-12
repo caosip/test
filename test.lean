@@ -26,14 +26,15 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
   have h0 : ∀ v, G.degree v = 0 := hreg
   have hneigh_empty : ∀ v, G.neighborFinset v = ∅ := by
     intro v
-    have hcard : (G.neighborFinset v).card = 0 := by
-      simpa [SimpleGraph.degree] using h0 v
-    exact Finset.card_eq_zero.mp hcard
+    have hdeg := h0 v
+    rw [SimpleGraph.degree] at hdeg
+    exact Finset.card_eq_zero.mp hdeg
   have h_no_adj : ∀ a b, ¬ G.Adj a b := by
     intro a b h_adj
     have hmem : b ∈ G.neighborFinset a :=
       (G.mem_neighborFinset _ _).mpr h_adj
     rw [hneigh_empty a] at hmem
+    simp at hmem
     exact hmem
   have h_bot : G = ⊥ := eq_bot_iff_forall_not_adj.mpr h_no_adj
   exact (SimpleGraph.edgeSet_eq_empty.mpr h_bot)
