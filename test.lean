@@ -23,7 +23,6 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
   rcases h with ⟨hlf, hreg⟩
-  haveI := hlf
   apply SimpleGraph.edgeSet_eq_empty.mpr
   ext v w
   constructor
@@ -35,6 +34,6 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     have hmem : w ∈ G.neighborFinset v := by
       simpa [SimpleGraph.mem_neighborFinset] using hadj
     rw [hcard0] at hmem
-    exact Finset.not_mem_empty _ hmem
+    simpa using hmem
   · intro h
     exfalso; exact h
