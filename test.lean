@@ -23,13 +23,15 @@ lemma SimpleGraph.IsRegularOfDegree'.edgeSet_empty {V : Type}
     {G : SimpleGraph V} (h : G.IsRegularOfDegree' 0) :
     G.edgeSet = ∅ := by
   rcases h with ⟨hlf, hreg⟩
-  haveI : G.LocallyFinite := hlf
   apply SimpleGraph.edgeSet_eq_empty.mpr
   ext v w
   simp
   intro hadj
-  have hdeg0 : G.degree v = 0 := hreg.degree_eq v
-  have h_isolated : G.IsIsolated v := SimpleGraph.IsIsolated.of_degree_eq_zero hdeg0
   have hmem : w ∈ G.neighborSet v := hadj
-  rw [h_isolated.neighborSet_eq_empty] at hmem
-  exact Set.not_mem_empty _ hmem
+  have hdeg0 : G.degree v = 0 := hreg.degree_eq v
+  have hcard0 : Fintype.card (G.neighborSet v) = 0 := by
+    simpa [SimpleGraph.degree] using hdeg0
+  have hcard_pos : 1 ≤ Fintype.card (G.neighborSet v) := by
+    have hne : Nonempty (G.neighborSet v) := ⟨⟨w, hmem⟩⟩
+    exact Fintype.card_pos_iff.mpr ⟨hne.some⟩
+  linarith
