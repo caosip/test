@@ -10,3 +10,13 @@ rev = "v4.28.0"
 
 [[lean_lib]]
 name = "test"
+
+
+# Restart File demo: two single-module libs so `RestartShow` can import
+# `RestartDef` without colliding with the dependency-owned `test.*`
+# namespace (proofwidgets also declares a `test` lib).
+[[lean_lib]]
+name = "RestartDef"
+
+[[lean_lib]]
+name = "RestartShow"
